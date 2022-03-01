@@ -9,10 +9,10 @@ const postSignup = async (req, res, next) => {
 
     try {
         const user = await User.create(req.body);
-        res.status(201).json(user);
+        return res.status(201).json(user);
 
     } catch (error) {
-        return res.status(500).send(error)
+        return res.status(500).json({ error: 'Email Already Exists!' })
 
     }
     next()
