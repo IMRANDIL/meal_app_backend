@@ -56,7 +56,7 @@ const postSignup = async (req, res, next) => {
 
 
 
-
+        next()
 
 
 
@@ -66,7 +66,7 @@ const postSignup = async (req, res, next) => {
         console.log(error);
 
     }
-    next()
+
 }
 
 

@@ -17,14 +17,14 @@ const authUser = async (req, res, next) => {
             return res.status(404).json('You are not authorized!')
         }
 
-        return req.user = user;
+        req.user = user;
 
-
+        next()
     } catch (error) {
         // console.log(error);
-        res.status(500).send('something bad happened')
+        return res.status(500).send('something bad happened')
     }
-    next()
+
 }
 
 

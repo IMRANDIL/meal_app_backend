@@ -40,13 +40,13 @@ const postLogin = async (req, res, next) => {
         }
         res.status(400).send("Invalid Credentials");
 
-
+        next()
 
     } catch (error) {
         console.log(error);
 
     }
-    next()
+
 
 }
 

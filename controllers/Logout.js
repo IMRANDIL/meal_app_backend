@@ -5,12 +5,15 @@ const postLogout = async (req, res, next) => {
 
     try {
         const user = req.user;
+
         user.token = '';
         await user.save();
-        return res.status(200).send()
+        res.status(200).send()
+        next()
     } catch (error) {
         console.log(error);
     }
+
 
 }
 

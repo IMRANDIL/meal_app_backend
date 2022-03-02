@@ -2,7 +2,7 @@
 
 
 
-const postAutoLogin = async (req, res, next) => {
+const postAutoLogin = (req, res, next) => {
     try {
         return res.send(req.user)
     } catch (error) {
