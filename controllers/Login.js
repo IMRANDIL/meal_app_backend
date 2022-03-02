@@ -10,6 +10,7 @@ const postLogin = async (req, res, next) => {
 
     try {
         const user = await User.findOne();
+        // console.log(user);
 
         if (user.email !== email) {
             return res.status(400).json({ msg: 'Invalid Credentials!' })
@@ -23,8 +24,9 @@ const postLogin = async (req, res, next) => {
         res.status(200).send(user)
     } catch (error) {
         console.log(error);
-        res.status(500).json({ error: 'something went wrong!' })
+        res.status(500).json({ msg: 'something went wrong!' })
     }
+    next()
 
 }
 

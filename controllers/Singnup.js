@@ -12,7 +12,7 @@ const postSignup = async (req, res, next) => {
         return res.status(201).json(user);
 
     } catch (error) {
-        return res.status(500).json({ error: 'Email Already Exists!' })
+        res.status(500).json({ error: 'Email Already Exists!' })
 
     }
     next()
