@@ -45,7 +45,7 @@ const postSignup = async (req, res, next) => {
             { _id: user._id },
             process.env.TOKEN_KEY,
             {
-                expiresIn: "2h",
+                expiresIn: "24h",
             }
         );
         // save user token

@@ -18,8 +18,8 @@ const postLogin = async (req, res, next) => {
             res.status(400).send("All input is required");
         }
         // Validate if user exist in our database
-        const user = await User.findOne();
-        console.log(user);
+        const user = await User.findOne({ email });
+        // console.log(user);
 
         if (user && (await bcrypt.compare(password, user.password))) {
             // Create token
@@ -27,7 +27,7 @@ const postLogin = async (req, res, next) => {
                 { _id: user._id },
                 process.env.TOKEN_KEY,
                 {
-                    expiresIn: "2h",
+                    expiresIn: "24h",
                 }
             );
 
